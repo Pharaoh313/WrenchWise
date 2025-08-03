@@ -103,8 +103,7 @@ struct TrustScoreCard: View {
             .padding(.top, 8)
         }
         .padding()
-        .background(Color.gray.opacity(0.05))
-        .cornerRadius(16)
+        .background(.quaternary.opacity(0.5), in: RoundedRectangle(cornerRadius: 12))
     }
 }
 
@@ -132,7 +131,7 @@ struct TrustMetric: View {
             GeometryReader { geometry in
                 ZStack(alignment: .leading) {
                     Rectangle()
-                        .fill(Color.gray.opacity(0.2))
+                        .fill(.quaternary)
                         .frame(height: 4)
                         .cornerRadius(2)
                     

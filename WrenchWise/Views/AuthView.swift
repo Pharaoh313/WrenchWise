@@ -84,11 +84,12 @@ struct AuthView: View {
                             }
                             .frame(maxWidth: .infinity)
                             .frame(height: 50)
-                            .background(isFormValid ? Color.blue : Color.gray.opacity(0.3))
+                            .background(isFormValid ? Color.accentColor : Color.secondary.opacity(0.3))
                             .foregroundColor(.white)
-                            .cornerRadius(12)
+                            .cornerRadius(10)
                         }
                         .disabled(!isFormValid || isLoading)
+                        .buttonStyle(.plain)
                         
                         // Toggle Auth Mode
                         Button(action: { 
@@ -101,7 +102,7 @@ struct AuthView: View {
                                 Text(isSignUp ? "Already have an account?" : "Don't have an account?")
                                     .foregroundColor(.secondary)
                                 Text(isSignUp ? "Sign In" : "Sign Up")
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(.accentColor)
                                     .fontWeight(.semibold)
                             }
                             .font(.subheadline)
@@ -114,14 +115,7 @@ struct AuthView: View {
                 .frame(minHeight: geometry.size.height)
             }
         }
-        .background(
-            LinearGradient(
-                gradient: Gradient(colors: [Color.blue.opacity(0.1), Color.white]),
-                startPoint: .top,
-                endPoint: .bottom
-            )
-            .ignoresSafeArea()
-        )
+        .background(.regularMaterial, in: Rectangle())
     }
     
     private var isFormValid: Bool {
@@ -187,8 +181,7 @@ struct CustomTextField: View {
                 .disableAutocorrection(true)
         }
         .padding()
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(12)
+        .background(.quaternary, in: RoundedRectangle(cornerRadius: 10))
     }
 }
 
@@ -206,8 +199,7 @@ struct CustomSecureField: View {
             SecureField(placeholder, text: $text)
         }
         .padding()
-        .background(Color.gray.opacity(0.1))
-        .cornerRadius(12)
+        .background(.quaternary, in: RoundedRectangle(cornerRadius: 10))
     }
 }
 
